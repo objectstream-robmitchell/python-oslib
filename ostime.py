@@ -16,5 +16,16 @@ class OSTime:
 			return str(time.time()).split('.')[0]
 		else:
 			return int(time.time())
+
+
+
+if __name__ == '__main__':
+	ostime = OSTime()
+	print 'epoch():'
+	print ostime.epoch(), str(type(ostime.epoch())), '()'
+	print ostime.epoch(string=False), str(type( ostime.epoch(string=False) )), ''
+	print ostime.epoch(string=True), str(type( ostime.epoch(string=True) )), ''
+	print ostime.epoch(False), str(type( ostime.epoch(False) )), ''
+	print ostime.epoch(True), str(type( ostime.epoch(True) )), ''
 		
 
