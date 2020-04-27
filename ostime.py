@@ -1,12 +1,15 @@
 
-
 """
 __module__      = 'ostime.py'
-__author__      = 'Rob Mitchell <rob.mitchell@objectstream.com>'
-__updated__     = '2020.03.04'
-__version__     = '0.0.1'
+__author__      = 'Rob Mitchell <rob.mitchell@objectstream.com>, <rlmitchell@gmail.com>'
+__updated__     = '2020.04.27'
+__version__     = '1.0.0'
 __status__      = 'development'
 __description__ = 'Objectstream Time Utilities' 
+
+__history__     = '''
+						2020.03.04 - initial development
+						'''
 """
 
 # ToDo:
@@ -22,6 +25,15 @@ class OSTime:
 	"""
 
 	def epoch(self,string=False):
+		"""Return current epoch.
+
+		:param string: return type str
+		:type  string: boolean 
+
+		:returns: current epoch
+		:rtype:   str or int
+		"""
+		
 		if string:
 			return str(time.time()).split('.')[0]
 		else:
