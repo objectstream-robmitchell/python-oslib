@@ -41,9 +41,9 @@ class OSTime:
 
 
 	def hms(self):
-	"""Return timestamp as YYYYMMDDHHMMSS
+		"""Return timestamp as YYYYMMDDHHMMSS
 
-	"""
+		"""
 
 		n = datetime.datetime.now()
 		return ''.join( [x if len(x) > 1 else '0'+x for x in (str(n.year),str(n.month),
@@ -51,9 +51,9 @@ class OSTime:
 
 
 	def ymd(self):
-	"""Return timestamp as YYYYMMDD
+		"""Return timestamp as YYYYMMDD
 
-	"""
+		"""
 
 		n = datetime.datetime.now()
 		return ''.join( [x if len(x) > 1 else '0'+x for x in (str(n.year),str(n.month),str(n.day))] )
