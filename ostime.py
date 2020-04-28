@@ -39,12 +39,22 @@ class OSTime:
 		else:
 			return int(time.time())
 
+
 	def hms(self):
+	"""Return timestamp as YYYYMMDDHHMMSS
+
+	"""
+
 		n = datetime.datetime.now()
 		return ''.join( [x if len(x) > 1 else '0'+x for x in (str(n.year),str(n.month),
 					str(n.day),str(n.hour),str(n.minute),str(n.second))] )
 
+
 	def ymd(self):
+	"""Return timestamp as YYYYMMDD
+
+	"""
+
 		n = datetime.datetime.now()
 		return ''.join( [x if len(x) > 1 else '0'+x for x in (str(n.year),str(n.month),str(n.day))] )
 
