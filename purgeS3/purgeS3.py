@@ -1,3 +1,10 @@
+
+__module__      = 'json_file.py'
+__author__      = 'Rob Mitchell <rob.mitchell@objectstream.com>'
+__updated__     = '2020.04.23'
+__version__     = '0.3.0'
+__status__      = 'development, final'
+
 import boto3
 from json_file import JSONFile
 
