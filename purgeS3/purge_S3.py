@@ -11,19 +11,15 @@ from json_file import JSONFile
 class S3BucketPurger(object):
 	def __init__(self):
 		self.config = JSONFile('config.json').load()
-		print self.config
 		self.bucket = boto3.resource('s3').Bucket( self.config['bucket'] )
 		self.all_objects = list( self.bucket.objects.all() )
-		print self.all_objects
 
 	def __call__(self):
 		self._purge()
 
 	def _purge(self):
 		for backup_object_group in self.config['backup_object_groups']:
-			print backup_object_group
 			backup_object_group_keys = self._get_backup_object_keys_in_group(backup_object_group)
-			print backup_object_group_keys
 			while len(backup_object_group_keys) > backup_object_group['keep_num']:
 				self._remove_object( backup_object_group_keys.pop(0) )
 
@@ -38,7 +34,6 @@ class S3BucketPurger(object):
 	def _remove_object(self, object_key):
 		for backup_object in self.all_objects:
 			if object_key == backup_object.key:
-				print 'remove ' + str( backup_object )
 				response = backup_object.delete()
 
 
