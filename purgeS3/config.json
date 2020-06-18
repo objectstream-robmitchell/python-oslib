@@ -1,0 +1,9 @@
+{
+    "backup_object_groups": [
+        {
+            "key_component": "test_backup", 
+            "keep_num": 3
+        }
+    ], 
+    "bucket": "backupstest.objectstream.com"
+}
