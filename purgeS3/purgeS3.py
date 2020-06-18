@@ -1,8 +1,8 @@
 
-__module__      = 'json_file.py'
+__module__      = 'purge_s3.py'
 __author__      = 'Rob Mitchell <rob.mitchell@objectstream.com>'
-__updated__     = '2020.04.23'
-__version__     = '0.3.0'
+__updated__     = '2020.06.17'
+__version__     = '0.5.0'
 __status__      = 'development, final'
 
 import boto3
