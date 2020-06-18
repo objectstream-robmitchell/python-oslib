@@ -1,7 +1,11 @@
 {
     "backup_object_groups": [
         {
-            "key_component": "test_backup", 
+            "key_component": "test_backup_app2", 
+            "keep_num": 3
+        },
+        {
+            "key_component": "test_backup_app1", 
             "keep_num": 3
         }
     ], 
