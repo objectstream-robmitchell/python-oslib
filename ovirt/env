@@ -1,3 +1,4 @@
 export OVIRT_HOST='whatever.example.com'
 export OVIRT_USERNAME=''
 export OVIRT_PASSWORD=''
+export OVIRT_CA_FILE='whatever.ca.pem'

@@ -15,9 +15,18 @@ class OVirtConnection:
         self.engine_host = os.environ.get('OVIRT_HOST')
         self.engine_username = os.environ.get('OVIRT_USERNAME')
         self.engine_password = os.environ.get('OVIRT_PASSWORD')
+        self.engine_ca_file = os.environ.get('OVIRT_CA_FILE')
         self.connection = self._connect()
 
     def _connect(self):
+connection = sdk.Connection(
+url='https://vhost1.okc.objectstream.com/ovirt-engine/api',
+username=creds['username'],
+password=creds['password'],
+ca_file='ovirt.ca.pem',
+ debug=True,
+		)
+		return connection
 
         pass
 
@@ -28,14 +37,6 @@ class OVirtConnection:
 
 def connect():
 	try:
-		connection = sdk.Connection(
- 	 	  url='https://vhost1.okc.objectstream.com/ovirt-engine/api',
- 	 	  username=creds['username'],
- 	 	  password=creds['password'],
- 	 	  ca_file='ovirt.ca.pem',
- 	 	  debug=True,
-		)
-		return connection
 	except:
 		return None
 
