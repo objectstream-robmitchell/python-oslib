@@ -1,0 +1,3 @@
+export OVIRT_HOST='whatever.example.com'
+export OVIRT_USERNAME=''
+export OVIRT_PASSWORD=''

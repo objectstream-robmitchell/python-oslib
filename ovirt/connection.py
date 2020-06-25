@@ -15,6 +15,14 @@ class OVirtConnection:
         self.engine_host = os.environ.get('OVIRT_HOST')
         self.engine_username = os.environ.get('OVIRT_USERNAME')
         self.engine_password = os.environ.get('OVIRT_PASSWORD')
+        self.connection = self._connect()
+
+    def _connect(self):
+        pass
+
+    def get_connection(self):
+        pass
+
 
 
 def connect():
