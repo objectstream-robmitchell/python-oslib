@@ -18,6 +18,7 @@ class OVirtConnection:
         self.connection = self._connect()
 
     def _connect(self):
+
         pass
 
     def get_connection(self):
