@@ -19,25 +19,15 @@ class OVirtConnection:
         self.connection = self._connect()
 
     def _connect(self):
-connection = sdk.Connection(
-url='https://vhost1.okc.objectstream.com/ovirt-engine/api',
-username=creds['username'],
-password=creds['password'],
-ca_file='ovirt.ca.pem',
- debug=True,
-		)
-		return connection
-
-        pass
+        connection = sdk.Connection(
+            url='https://'+self.engine_host+'/ovirt-engine/api',
+            username=self.engine_username,
+            password=self.engine_password,
+            ca_file=self.engine_ca_file,
+            debug=True)
+        return connection
 
     def get_connection(self):
         pass
-
-
-
-def connect():
-	try:
-	except:
-		return None
 
 
