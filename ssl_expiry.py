@@ -22,8 +22,6 @@ class SSLExpiry:
 		- port (int):     Port to connect to.  Default: 443
 		"""
 
-		#self.site = site
-		#self.port = port
 		self.cert = ssl.get_server_certificate((site, port))
 		self.x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, self.cert)
 
