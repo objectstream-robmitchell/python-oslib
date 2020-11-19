@@ -24,17 +24,19 @@ class SSLExpiry:
 
 		self.site = site
 		self.port = port
+		self.cert = ssl.get_server_certificate((self.site, self.port))
+		self.x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, self.cert)
 
 
 	def __call__(self):
 		"""
-		Default action; calls expired().
+		Default action; calls valid().
 		"""
 
-		return self.expired()
+		return self.valid()
 
 
-	def expired(self,warning_days=10):
+	def valid(self,warning_days=10):
 		"""
 		Determine if SSL certificate is expired.
 
@@ -49,5 +51,16 @@ class SSLExpiry:
 		x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, cert)
 		expire_datetime = datetime.strptime(str(x509.get_notAfter())[2:10], '%Y%m%d')
 		return datetime.now() < expire_datetime - timedelta(days=warning_days) 
+
+
+	def expire_Ymd(self):
+		"""
+		Gets cert expire date.
+		
+		Returns:
+		- (string): Expire date formatted %Y%m%d.
+		"""
+
+		return str(self.x509.get_notAfter())[2:10]
 
 
