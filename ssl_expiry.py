@@ -47,9 +47,9 @@ class SSLExpiry:
 		- (bool):  True if within warning window.
 		"""
 
-		cert = ssl.get_server_certificate((self.site, self.port))
-		x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, cert)
-		expire_datetime = datetime.strptime(str(x509.get_notAfter())[2:10], '%Y%m%d')
+		#cert = ssl.get_server_certificate((self.site, self.port))
+		#x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, cert)
+		expire_datetime = datetime.strptime(str(self.x509.get_notAfter())[2:10], '%Y%m%d')
 		return datetime.now() < expire_datetime - timedelta(days=warning_days) 
 
 
