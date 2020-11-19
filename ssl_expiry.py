@@ -22,9 +22,9 @@ class SSLExpiry:
 		- port (int):     Port to connect to.  Default: 443
 		"""
 
-		self.site = site
-		self.port = port
-		self.cert = ssl.get_server_certificate((self.site, self.port))
+		#self.site = site
+		#self.port = port
+		self.cert = ssl.get_server_certificate((site, port))
 		self.x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, self.cert)
 
 
@@ -47,8 +47,6 @@ class SSLExpiry:
 		- (bool):  True if within warning window.
 		"""
 
-		#cert = ssl.get_server_certificate((self.site, self.port))
-		#x509 = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, cert)
 		expire_datetime = datetime.strptime(str(self.x509.get_notAfter())[2:10], '%Y%m%d')
 		return datetime.now() < expire_datetime - timedelta(days=warning_days) 
 
