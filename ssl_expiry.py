@@ -26,6 +26,14 @@ class SSLExpiry:
 		self.port = port
 
 
+	def __call__(self):
+		"""
+		Default action; calls expired().
+		"""
+
+		return self.expired()
+
+
 	def expired(self,warning_days=10):
 		"""
 		Determine if SSL certificate is expired.
