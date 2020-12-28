@@ -17,7 +17,7 @@ class AESUtil(object):
    key (str) 256bit/32byte AES key. 
   '''
 
-  def __init__(self):
+  def __init__(self,key):
     self.key = self.check_key(key)
 
 
