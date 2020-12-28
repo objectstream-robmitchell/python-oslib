@@ -1,7 +1,7 @@
 {
     "backup_object_groups": [
         {
-            "key_prefix": "test_backup_app2", 
+            "key_prefix": "autobck.os1nginx.", 
             "keep_num": 3
         }
     ], 
