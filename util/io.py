@@ -23,9 +23,9 @@ class IO:
 
 	@classmethod
 	def get_resource(cls,url,get_bytes=False):
-		response = requests.get(url)
-		if not str(response.status_code).startswith('2'):
-			raise Exception(response.status_code,url)
+		resp = response = requests.get(url)
+		if not str(resp.status_code).startswith('2'):
+			raise Exception(resp.status_code,url)
 		if get_bytes:
 			return resp.content
 		return resp.text
