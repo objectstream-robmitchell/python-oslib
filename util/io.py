@@ -1,3 +1,10 @@
+
+__module__      = 'io.py'
+__maintainer__  = 'rob.mitchell@objectstream.com'
+__version__     = '0.1.0'
+__status__      = 'development'
+
+
 import requests 
 
 class IO:
