@@ -8,14 +8,18 @@ __status__      = 'development'
 import requests 
 
 class IO:
+
+	@classmethod
 	def get_file(filename):
 		with open(filename,'rb') as f:
 			return f.read()
 
+	@classmethod
 	def put_file(filename,data):
 		with open(filename,'wb') as f:
 			f.write(data)
 
+	@classmethod
 	def get_resource(url,get_bytes=False):
 		response = requests.get(url)
 		if not str(response.status_code).startswith('2'):
