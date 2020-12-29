@@ -22,7 +22,7 @@ class IO:
 			f.write(data)
 
 	@classmethod
-	def get_resource(cls,url,get_bytes=False):
+	def get_resource(cls,url,get_bytes=True):
 		resp = response = requests.get(url)
 		if not str(resp.status_code).startswith('2'):
 			raise Exception(resp.status_code,url)
