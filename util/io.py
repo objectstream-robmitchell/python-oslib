@@ -10,17 +10,17 @@ import requests
 class IO:
 
 	@classmethod
-	def get_file(filename):
+	def get_file(cls,filename):
 		with open(filename,'rb') as f:
 			return f.read()
 
 	@classmethod
-	def put_file(filename,data):
+	def put_file(cls,filename,data):
 		with open(filename,'wb') as f:
 			f.write(data)
 
 	@classmethod
-	def get_resource(url,get_bytes=False):
+	def get_resource(cls,url,get_bytes=False):
 		response = requests.get(url)
 		if not str(response.status_code).startswith('2'):
 			raise Exception(response.status_code,url)
