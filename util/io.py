@@ -16,6 +16,8 @@ class IO:
 
 	@classmethod
 	def put_file(cls,filename,data):
+		if not isinstance(data,bytes):
+			raise Exception('data != bytes')
 		with open(filename,'wb') as f:
 			f.write(data)
 
