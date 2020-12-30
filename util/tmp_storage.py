@@ -13,7 +13,7 @@ class TmpStorage():
 		self.mount()
 
 	def mount(self):
-		if not is_mounted():
+		if not self.is_mounted():
 			if not subprocess.run('sshfs '+self.config['remote']+' '+self.config['local'],shell=True,check=True):
 				raise Exception('mount error')
 
