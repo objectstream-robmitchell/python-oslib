@@ -16,7 +16,8 @@ class TmpStorage():
 		pass
 
 	def umount(self):
-		pass
+		if not subprocess.run('',shell=True,check=True):
+			raise Exception('umount error')
 
 	def is_mounted(self):
 		for line in subprocess.getoutput('/usr/bin/mount').split('\n'):
