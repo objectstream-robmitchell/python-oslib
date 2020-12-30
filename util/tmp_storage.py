@@ -13,7 +13,9 @@ class TmpStorage():
 		self.mount()
 
 	def mount(self):
-		pass
+		if not is_mounted():
+			if not subprocess.run('sshfs '+self.config['remote']+' '+self.config['local'],shell=True,check=True):
+				raise Exception('mount error')
 
 	def umount(self):
 		if not subprocess.run('/usr/bin/fusermount -u '+self.config['local'],shell=True,check=True):
