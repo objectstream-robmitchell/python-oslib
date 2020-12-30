@@ -16,7 +16,7 @@ class TmpStorage():
 		pass
 
 	def umount(self):
-		if not subprocess.run('',shell=True,check=True):
+		if not subprocess.run('/usr/bin/fusermount -u '+self.config['local'],shell=True,check=True):
 			raise Exception('umount error')
 
 	def is_mounted(self):
