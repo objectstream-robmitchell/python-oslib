@@ -1,3 +1,10 @@
+
+__module__      = 'tmp_storage.py'
+__maintainer__  = 'rob.mitchell@objectstream.com'
+__version__     = '0.1.0'
+__status__      = 'development'
+
+
 import os
 import subprocess
 
@@ -34,7 +41,5 @@ class TmpStorage():
 	def _check_local_dir(self):
 		if not os.path.isdir( self.config['local'] ):
 			os.mkdir( self.config['local'], mode=0o700 )
-
-
 
 
