@@ -1,8 +1,8 @@
 
-__module__      = 'tmp_storage.py'
-__maintainer__  = 'rob.mitchell@objectstream.com'
-__version__     = '0.1.0'
-__status__      = 'development'
+__module__     = 'tmp_storage.py'
+__maintainer__ = 'Rob Mitchell <rob.mitchell@objectstream.com>,<rlmitchell@gmail.com>'
+__tested__     = 'Python 3.5.2'
+__version__    = '2021.01.20.1318'
 
 
 import os
@@ -10,9 +10,8 @@ import subprocess
 
 
 class TmpStorage():
-
-	def __init__(self):
-		self.config = {'remote':'root@sslhelper.okc.objectstream.com:/mnt/backup_workspace','local':'/mnt/backup_workspace'}
+	def __init__(self,config={}):
+		self.config = config
 		self._check_user_id()
 		self._check_local_dir()
 
@@ -41,5 +40,4 @@ class TmpStorage():
 	def _check_local_dir(self):
 		if not os.path.isdir( self.config['local'] ):
 			os.mkdir( self.config['local'], mode=0o700 )
-
 
