@@ -15,14 +15,19 @@ class PurgeS3:
 		self.bucket = boto3.resource('s3').Bucket( bucket_name )
 		self.objects = [o for o in self.bucket.objects.all() if self.backup_prefix in o.key]
 
-		#self.objects = list( self.bucket.objects.all() )
-		#self.keys = self._backup_object_keys()
-
 	def __call__(self):
-		print(self.objects)
+		keys = sorted([o.key for o in self.objects])
+		while len(self.objects) > self.keep:
+			delete_object = self.objects.pop(0)
+			print( delete_object )
+			response = delete_object.delete()
+			print( response )
 
-	
 
 if __name__ == '__main__':
-	p = PurgeS3(backup_prefix='bck.container-data.xwiki9-mysql-db.',num_keep=10,bucket_name='backups.okc.objectstream.com')()
+	p = PurgeS3(backup_prefix='autobck.workstation.nginx.',num_keep=8,bucket_name='tmp1.objectstream.com')()
 
+
+'''
+['autobck.workstation.nginx.1609435215', 'autobck.workstation.nginx.1609435217', 'autobck.workstation.nginx.1609435219', 'autobck.workstation.nginx.1609435221', 'autobck.workstation.nginx.1609435223', 'autobck.workstation.nginx.1609435225', 'autobck.workstation.nginx.1609435227', 'autobck.workstation.nginx.1609435229', 'autobck.workstation.nginx.1609435231', 'autobck.workstation.nginx.1609435233']
+'''
