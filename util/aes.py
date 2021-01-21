@@ -1,5 +1,5 @@
 
-__module__      = 'aesutil.py'
+__module__     = 'aesutil.py'
 __maintainer__ = 'Rob Mitchell <rob.mitchell@objectstream.com>,<rlmitchell@gmail.com>'
 __tested__     = 'Python 3.6.8'
 __version__    = '2021.01.20.1314'
