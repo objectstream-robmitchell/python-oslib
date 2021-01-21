@@ -1,5 +1,5 @@
 
-__module__     = 'purgeS3.py'
+__module__     = 's3purge.py'
 __maintainer__ = 'Rob Mitchell <rob.mitchell@objectstream.com>,<rlmitchell@gmail.com>'
 __tested__     = 'Python 3.5.2'
 __version__    = '2021.01.20.1254'

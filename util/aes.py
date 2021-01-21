@@ -1,27 +1,41 @@
 
-__module__      = 'aesutil.py'
-__maintainer__  = 'rob.mitchell@objectstream.com'
-__version__     = '0.4.0'
-__status__      = 'development'
+__module__     = 'aes.py'
+__maintainer__ = 'Rob Mitchell <rob.mitchell@objectstream.com>,<rlmitchell@gmail.com>'
+__tested__     = 'Python 3.6.8'
+__version__    = '2021.01.20.1314'
+
 
 import os
 import binascii
 import struct
 from Crypto.Cipher import AES
 
+
 class AESUtil(object):
   '''
   AES wrapper class that handles padding.
-
-  Args:
-   key (str) 256bit/32byte AES key. 
   '''
 
   def __init__(self,key):
+    '''
+    :param key: 256bit/32byte AES key
+    :type key:  str
+    '''
     self.key = self.check_key(key)
 
 
   def check_key(self,key):
+    '''
+    Ensures given key is 32 characters
+
+    :param key: 256bit/32byte AES key
+    :type key:  str
+
+    :returns:   sanitized key
+    :rtype:     str
+
+    :raises: custom exception
+    '''
     try:
       if len(key) < 32:
         raise Exception('32 byte/256 bit key required')
@@ -34,13 +48,12 @@ class AESUtil(object):
     '''
     Method to encrypt plaintext.
 
-    Args:
-      plaintext (str) data to be encrypted.
+    :param plaintest:  data to be encrypted
+    :type plaintext:   str
 
-    Returns:
-      ciphertext (str) base64 AES encrypted data.
+    :returns:  ciphertext
+    :rtype:    str - base64 encrypted data
     '''
-
     if self.key == None:
       raise Exception('encrypt() with no key')
     iv = os.urandom(16)
@@ -55,15 +68,14 @@ class AESUtil(object):
 
   def decrypt(self,ciphertext):
     '''
-    Method to decrypt plaintext.
+    Method to decrypt base64 ciphertext.
 
-    Args:
-      ciphertext (str) base64 AES encrypted data.
+    :param ciphertext:  data to be decrypted
+    :type ciphertext:   str - base64 encrypted data
 
-    Returns:
-      plaintext (str) decrypted plaintext.
+    :returns:  decrypted plaintext
+    :rtype:    str
     '''
-
     if self.key == None:
       raise Exception('decrypt() with no key')
     ciphertext = binascii.a2b_base64(ciphertext)

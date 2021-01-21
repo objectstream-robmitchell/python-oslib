@@ -11,11 +11,19 @@ import pprint
 
 
 class InstancesInfo:
+   """Collects id,name,state and public ip address of all instances in a region."""
+
    def __init__(self):
       self.ec2 = boto3.session.Session().resource('ec2')
       self.ids = tuple(( i['InstanceId'] for i in [n['Instances'][0] for n in boto3.client('ec2').describe_instances()['Reservations']] ))
 
    def get_info(self):
+      """
+      Gets info for all instances.
+
+      :return: tuples - one per instance (id,name,state,public_ip)
+      :rtype:  tuple of tuples
+      """
       info = []
       for i in self.ids:
          try:
@@ -25,11 +33,19 @@ class InstancesInfo:
             public_ip = instance.public_ip_address
             info.append( (i,name,state,public_ip) )
          except Exception as e:
-            #print(e)
             info.append( () )
       return tuple(info)
 
    def get_name(self,tags):
+      """
+      Gets the value of the Name tag.
+
+      :param tags: instance tags from AWS
+      :type tags:  list of dicts
+
+      :return: value of the Name tag
+      :rtype:  str
+      """
       for tag in tags:
          if tag['Key'] == 'Name':
             return tag['Value']

@@ -1,14 +1,14 @@
 
 __module__      = 'io.py'
-__maintainer__  = 'rob.mitchell@objectstream.com'
-__version__     = '0.1.0'
-__status__      = 'development'
+__maintainer__ = 'Rob Mitchell <rob.mitchell@objectstream.com>,<rlmitchell@gmail.com>'
+__tested__     = 'Python 3.6.8'
+__version__    = '2021.01.21.0858'
 
 
 import requests
 
-class IO:
 
+class IO:
 	@classmethod
 	def get_file(cls,filename):
 		with open(filename,'rb') as f:
