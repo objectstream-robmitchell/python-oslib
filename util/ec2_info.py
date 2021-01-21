@@ -18,7 +18,8 @@ class InstancesInfo:
       self.ids = tuple(( i['InstanceId'] for i in [n['Instances'][0] for n in boto3.client('ec2').describe_instances()['Reservations']] ))
 
    def get_info(self):
-      """Gets info for all instances.
+      """
+      Gets info for all instances.
 
       :return: tuples - one per instance (id,name,state,public_ip)
       :rtype:  tuple of tuples
