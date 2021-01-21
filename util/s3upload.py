@@ -6,12 +6,11 @@ __version__    = '2021.01.20.1550'
 
 
 import boto3
-from osprivate import osprivate
 
 
 class S3Upload:
-   def __init__(self,filename):
-      self.bucket_name = osprivate['backups_bucket_name']
+   def __init__(self,filename,bucket_name):
+      self.bucket_name = bucket_name
       self.filename = filename
       self.objectname = filename.split('/')[-1]
       self.s3 = boto3.resource('s3')
