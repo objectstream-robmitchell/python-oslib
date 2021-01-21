@@ -2,7 +2,7 @@
 __module__      = 'io.py'
 __maintainer__ = 'Rob Mitchell <rob.mitchell@objectstream.com>,<rlmitchell@gmail.com>'
 __tested__     = 'Python 3.6.8'
-__version__    = '2021.01.14.0909'
+__version__    = '2021.01.21.0858'
 
 
 import requests
