@@ -60,7 +60,7 @@ class AESUtil(object):
     aes = AES.new(self.key,AES.MODE_CBC,iv)
     plaintext_size = len(plaintext)
     while( (len(plaintext)%16) != 0 ):
-      plaintext = plaintext + '0'
+      plaintext = plaintext + b'0'
     dif = binascii.b2a_hex(struct.pack('H',(len(plaintext)-plaintext_size)))
     ciphertext = aes.encrypt(plaintext)
     return binascii.b2a_base64(dif+iv+ciphertext)
