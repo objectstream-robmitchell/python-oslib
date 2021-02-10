@@ -6,6 +6,7 @@ objectstream python library
 * util/io.py - IO class for disk I/O and url content reads
 * util/purgeS3.py - purges timestamped S3 objects
 * util/s3upload.py - upload file to S3 bucket
+* util/ssl_expiration.py - class that gets a web site's expiration date
 * util/timestamp.py - Timestamp class for help naming files
 * util/tmp_storage.py - TmpStorage class for mounting temporary disk storage
 
