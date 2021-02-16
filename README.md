@@ -4,6 +4,7 @@ objectstream python library
 * util/aes.py - AESUtil class for encryption/decryption/padding
 * util/ec2_info.py - boto3 class that gets AWS instances information
 * util/io.py - IO class for disk I/O and url content reads
+* util/mysql_interface.py - Simple mysql interface for queries
 * util/purgeS3.py - purges timestamped S3 objects
 * util/s3upload.py - upload file to S3 bucket
 * util/ssl_expiration.py - class that gets a web site's expiration date
@@ -11,4 +12,4 @@ objectstream python library
 * util/tmp_storage.py - TmpStorage class for mounting temporary disk storage
 
 ----
-updated: 2021.02.10.1619
+updated: 2021.02.16.1502
